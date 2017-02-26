@@ -1,0 +1,11 @@
+%h1 Welcome to simple chat
+= form_tag '/sessions' do
+  .form-group
+    = label_tag :name, "Your name"
+    = text_field_tag :name, nil, required: true
+  .form-group
+    = label_tag :name, "dialect"
+    = select_tag :dialect, options_for_select(@dialects, "Yoda")
+    = hidden_field_tag :login_time, Time.now
+  .form-group
+    = submit_tag 'Enter', class: 'btn btn-primary'

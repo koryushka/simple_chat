@@ -1,0 +1,9 @@
+.message{:class => @user['name'] == message.author ? 'sent_message' : 'received_message'}
+  %span.message_icon
+    = image_tag("#{message.dialect}.png")
+  %span
+    ="#{message.created_at}"
+  %h2
+    %b
+      = "#{message.author}:"
+    = "#{message.content} "

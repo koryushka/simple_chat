@@ -1,0 +1,21 @@
+- if @user
+  = link_to 'Leave chat', session_path(0), method: :delete
+  %h1
+    = "Hi, #{@user['name']}"
+
+.row.col-md-9
+  .panel.panel-default
+    - if @messages
+      #messages.panel-body
+        = render partial: 'messages/message', collection: @messages
+    - else
+      #messages.panel-body.hidden
+    = render partial: 'messages/message_form', locals: {message: @message, user: @user}
+
+.col-md-3
+  .panel.panel-primary
+    .panel-heading
+      %h3.panel-title User list
+    .panel-body
+      %ul#users
+        = render partial: 'users/user', collection: $user_list
